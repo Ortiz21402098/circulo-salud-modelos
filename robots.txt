@@ -1,0 +1,3 @@
+# VISTA PREVIA: bloquea buscadores
+User-agent: *
+Disallow: /

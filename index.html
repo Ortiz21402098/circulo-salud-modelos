@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Círculo Salud | Elegí el modelo de tu sitio web</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<style>
+:root{--navy:#12405f;--ink:#1b2a35;--muted:#5b6b76;--line:#dbe6ee}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#f4f8fc;line-height:1.6}
+header{background:#fff;border-bottom:1px solid var(--line)}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+header img{height:52px;width:auto}
+header span{color:var(--muted);font-size:.9rem}
+.intro{text-align:center;padding:54px 0 30px}
+.intro h1{font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 12px;color:var(--navy);line-height:1.15}
+.intro p{max-width:680px;margin:0 auto;color:var(--muted);font-size:1.08rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:20px 0 70px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 6px 22px rgba(18,64,95,.08);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(18,64,95,.16)}
+.shot{position:relative;aspect-ratio:16/11;overflow:hidden;background:#dfe8ef}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s}
+.card:hover .shot img{transform:scale(1.05)}
+.num{position:absolute;left:14px;top:14px;background:#12405f;color:#fff;font-weight:800;border-radius:999px;padding:5px 14px;font-size:.85rem}
+.body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.body h2{margin:0;font-size:1.4rem;color:var(--navy)}
+.body p{margin:0;color:var(--muted)}
+.body ul{margin:6px 0 10px;padding-left:18px;color:#33434f;font-size:.95rem}
+.btn{margin-top:auto;display:inline-flex;justify-content:center;background:var(--navy);color:#fff;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700}
+.btn:hover{background:#1b5780}
+footer{text-align:center;color:var(--muted);font-size:.88rem;padding:0 0 40px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header><div class="wrap"><img src="assets/img/logo.png" alt="Círculo Salud" width="700" height="296"><span>Propuestas de sitio web · Tu Web_com</span></div></header>
+<main class="wrap">
+  <section class="intro">
+    <h1>Elegí el modelo que más te guste</h1>
+    <p>Tres propuestas de diseño para el sitio de Círculo Salud, con el mismo contenido. Entrá a cada una, recorrela completa (también en el celular) y decinos cuál preferís.</p>
+  </section>
+  <section class="grid">
+    <article class="card"><div class="shot"><span class="num">Modelo 1</span><img src="assets/img/preview-1.webp" alt="Vista previa del modelo 1" loading="lazy"></div>
+      <div class="body"><h2>Elegante e institucional</h2><p>Sobrio y confiable, con la paleta azul del logo.</p>
+      <ul><li>Foto de la recepción en el inicio</li><li>Tipografía clásica con serif</li><li>Animaciones suaves al desplazarse</li></ul>
+      <a class="btn" href="modelo-1/index.html">Ver modelo 1</a></div></article>
+    <article class="card"><div class="shot"><span class="num">Modelo 2</span><img src="assets/img/preview-2.webp" alt="Vista previa del modelo 2" loading="lazy"></div>
+      <div class="body"><h2>Moderno y animado</h2><p>Oscuro y dinámico, con video en el inicio.</p>
+      <ul><li>Video del consultorio en el inicio</li><li>Textos, contadores y tarjetas animadas</li><li>Cinta de obras sociales en movimiento</li></ul>
+      <a class="btn" href="modelo-2/index.html">Ver modelo 2</a></div></article>
+    <article class="card"><div class="shot"><span class="num">Modelo 3</span><img src="assets/img/preview-3.webp" alt="Vista previa del modelo 3" loading="lazy"></div>
+      <div class="body"><h2>Cálido y cercano</h2><p>Claro, amable y colorido, pensado para generar confianza.</p>
+      <ul><li>Formas orgánicas y colores suaves</li><li>Pasos para pedir turno y preguntas frecuentes</li><li>Video del recorrido en una sección propia</li></ul>
+      <a class="btn" href="modelo-3/index.html">Ver modelo 3</a></div></article>
+  </section>
+</main>
+<footer>Sitio en vista previa · Desarrollado por Tu Web_com</footer>
+</body></html>
