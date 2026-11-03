@@ -1,33 +1,45 @@
-# Círculo Salud — 3 modelos de sitio web (vista previa)
+# Círculo Salud — sitio web (modelo 1)
 
-Tres propuestas de diseño, con el mismo contenido, en HTML + CSS + JS puro (sin build).
+Sitio estático en HTML + CSS + JS puro (sin build). Versión actualizada del **modelo 1**.
 
-| Carpeta | Modelo |
-|---|---|
-| `modelo-1/` | Elegante e institucional (azul del logo, serif) |
-| `modelo-2/` | Moderno y animado (oscuro, video en el inicio, contadores, cinta de obras sociales) |
-| `modelo-3/` | Cálido y cercano (claro, colores suaves, pasos para el turno y preguntas frecuentes) |
+```
+index.html          → redirige a modelo-1/index.html
+modelo-1/           → las páginas del sitio (index, nosotros, servicios, obras-sociales, contacto, turnos, privacidad)
+  assets/css/style.css
+  assets/js/main.js       (menú, animaciones, pestañas, buscador de obras sociales, galería)
+  assets/js/chatbot.js    (asistente de turnos que abre WhatsApp)
+assets/img, assets/video  → imágenes y videos compartidos
+```
 
-`index.html` (raíz) es el selector que se le muestra al dueño. Cada modelo tiene una barra abajo a la izquierda para volver al selector.
+## Qué cambió en esta versión
+- Equipo: apellido **Llugdar**; Dra. Lourdes Mercau suma **Odontopediatría**; Lic. Karina Pavón con *Traumatología general · Rehabilitación de lesiones · Drenaje linfático manual*.
+- Kinesiología: nueva foto del consultorio y video del consultorio (en Servicios → Kinesiología).
+- **Ubicación** con tarjeta con foto, dirección y botón "Ver en mapa" (Inicio y Contacto).
+- **Turnos sin formulario**: se pide por WhatsApp. El ícono de WhatsApp (arriba a la derecha y flotante) abre un **asistente** que pregunta servicio, motivo, obra social, día, horario y nombre, y al final abre WhatsApp con el mensaje ya escrito. También se puede escribir directo.
+- Logo con fondo transparente; se quitó la barra "Ver otros modelos".
 
 ## Ver en local
 ```bash
 python3 -m http.server 8000   # abrir http://localhost:8000
 ```
-También funciona abriendo `index.html` con doble clic, salvo el video en algunos navegadores.
 
-## Publicar en Vercel
-Subir esta carpeta a Git → Vercel: Add New → Project → Framework "Other", sin build command ni output directory.
-`vercel.json` activa URLs limpias y cabeceras básicas. Es vista previa: todas las páginas llevan `noindex` y `robots.txt` bloquea buscadores.
+## Si ya subiste la versión anterior al repo
+Borrar las carpetas `modelo-2/` y `modelo-3/` (y `assets/img/preview-*.webp`) y reemplazar el resto con estos archivos.
 
-## Cuando Nico elija
-1. Dejar solo la carpeta elegida (ej. `modelo-2/`) y mover su contenido a la raíz; ajustar las rutas `../assets/` → `assets/` (buscar y reemplazar).
-2. Quitar la barra "Ver otros modelos" (`.model-bar`), el `noindex` y reemplazar `robots.txt`.
-3. Cargar dominio (og:url, og:image, canonical), fotos de las 3 odontólogas y revisar la política de privacidad con un asesor legal.
-4. Formulario de turnos: hoy abre WhatsApp. Para PHP completar `CONFIG.turnosEndpoint` en `assets/js/main.js` (POST JSON; tabla sugerida `solicitudes_turno`).
+## Publicar
+- **GitHub Pages**: queda en `https://<usuario>.github.io/<repo>/modelo-1/index.html`.
+- **Vercel**: Add New → Project → Framework "Other", sin build command. `vercel.json` redirige la raíz y activa cabeceras básicas.
 
-## Datos a confirmar
-- Contadores del inicio: "6 años" (desde 2020), 4 consultorios, 9 especialidades y "+60 obras sociales" son calculados a partir de los datos enviados; confirmar con Nico.
-- Equipo: nombres, matrículas y especialidades cargados; faltan fotos de las odontólogas.
-- Fotos de banco (consulta odontológica en Servicios): confirmar licencia o reemplazar.
-- El video es vertical y de baja resolución; en el modelo 2 se reproduce solo, mudo y en bucle (pesa 5 MB).
+## Asistente de turnos (chatbot)
+- Funciona en el navegador, sin servidor ni IA: es un flujo de preguntas con botones.
+- Configuración en `assets/js/chatbot.js` (arriba): `whatsapp` (número) y `turnosEndpoint`.
+- Hoy **no guarda nada**: arma el mensaje y abre WhatsApp. Con el backend PHP, completar `turnosEndpoint` (ej. `api/turnos.php`) y se enviará un POST JSON (tabla sugerida `solicitudes_turno`) antes de abrir WhatsApp.
+- Los motivos de consulta y las listas de obras sociales del asistente están dentro de `chatbot.js`; las de la página de Obras sociales están en `obras-sociales.html`. Si cambian, actualizar ambos lugares.
+- Para abrir el asistente desde otro botón: agregarle el atributo `data-chat-open` (y opcionalmente `data-chat-service="odontologia"` o `"kinesiologia"`). La URL `...#turno` también lo abre.
+
+## Antes de publicar con dominio
+1. Quitar `noindex` (meta en cada HTML) y reemplazar `robots.txt`.
+2. Cargar dominio: `og:url`, `og:image` (`assets/img/og-image.jpg`) y `canonical`.
+3. Fotos de las 3 odontólogas (hoy avatar) y fotos extra de kinesiología.
+4. Revisar la política de privacidad con un asesor legal (Ley 25.326).
+5. Confirmar la ubicación en el mapa y el estado de la foto de banco de "Odontología" (licencia) en Servicios.
