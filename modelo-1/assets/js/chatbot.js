@@ -32,6 +32,11 @@
   };
   var OBRAS = {"odontologia": ["Galeno", "Medifé", "Swiss Medical", "Prevención Salud", "Boreal", "Sancor Salud", "Avalian", "Omint", "Federada Salud", "Ostamma", "Medicus", "Caja de Abogados", "Agente de Propaganda Médica", "Ciencias Económicas"], "kinesiologia": ["Avalian", "AMICOS", "AMUR", "APROSS", "Banco de Córdoba", "Caja de Abogados", "Caja Notarial", "CPCE", "D.A.S.P.U.", "D.A.S.U.T.E.N.", "Federada Salud (25 de Junio)", "Gráficos – Personal de la Ind. Gráfica", "Gilsa SRL – Integral Salud", "Jerárquicos Salud", "ART La Holando", "A.R.T. La Segunda", "Luis Pasteur", "Madereros", "Medicus", "Medifé – Cobertura Médica", "Asoc. Escles. San Pedro", "OSETYA", "OSITAC", "OSPEDYC", "OSPEDYM", "OSPES", "OSSEG Seguros", "Prevención Salud", "ART Prevención", "SADAIC", "Sancor Seguros Íntegros", "Unimed", "Ensalud", "Boreal Cobertura de Salud S.A.", "OSMATA – Sanitas Salud", "OSDOP/SADOP – Servired", "OSADEF", "Ampara Salud", "OSPIL", "Griff Salud S.A.", "IOSFA", "Premedic", "TV Salud", "ART Provincia", "La Segunda Personas", "OSPÍA", "Poder Judicial", "Asoc. Arg. Mutual del Motociclista", "O.P.D.E.A.", "Sancor Salud", "RAS (Red Arg. Sanat)", "OSPECOR", "OSSOELSAC – Rerum Salud", "Luz y Fuerza (Regional LyF OSFATLyF – OSPLyF)", "Colonia Suiza", "ART Mutual Rural", "Grupo Roisa Docto Red"]};
   var SERVICIO_LABEL = { odontologia: 'Odontología', kinesiologia: 'Kinesiología' };
+  var PROFESIONALES = {
+    odontologia: ['Dra. Florencia Santolino', 'Dra. Lourdes Mercau', 'Dra. Agustina Llugdar'],
+    kinesiologia: ['Lic. Karina Pavón']
+  };
+  var INDISTINTO = 'Indistinto (la primera disponible)';
   var DIAS = ['Lo antes posible', 'Esta semana', 'La semana próxima'];
   var FRANJAS = ['Por la mañana', 'Por la tarde', 'Cualquier horario'];
   var PARTICULAR = 'Particular / sin obra social';
@@ -51,19 +56,27 @@
   function ddmmyyyy(s) { var p = s.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; }
 
   /* ---------------- estado ---------------- */
-  var STEPS = ['servicio', 'motivo', 'os', 'dia', 'franja', 'nombre'];
+  var STEPS = ['servicio', 'profesional', 'motivo', 'os', 'dia', 'franja', 'nombre'];
   var state, panel, log, ctl, opener = null, isOpen = false, shown = 0, dateMode = false, sent = false;
 
   function reset(service) {
     state = { answers: {}, step: 0 };
     shown = 0; dateMode = false; sent = false;
-    if (service && MOTIVOS[service]) { state.answers.servicio = service; state.step = 1; }
+    if (service && MOTIVOS[service]) { setServicio(service); }
+  }
+
+  // Al elegir servicio: en Kinesiología la profesional es una sola, se asigna y se salta la pregunta.
+  function setServicio(v) {
+    state.answers.servicio = v;
+    if (PROFESIONALES[v].length === 1) { state.answers.profesional = PROFESIONALES[v][0]; state.step = STEPS.indexOf('motivo'); }
+    else { state.step = STEPS.indexOf('profesional'); }
   }
 
   function ask(step) {
     var s = state.answers.servicio;
     switch (step) {
       case 'servicio': return '¿Para qué servicio querés el turno?';
+      case 'profesional': return s === 'odontologia' ? '¿Con qué odontóloga querés atenderte?' : '';
       case 'motivo': return 'Perfecto, ' + SERVICIO_LABEL[s] + '. ¿Cuál es el motivo de la consulta?';
       case 'os': return '¿Tenés obra social o prepaga? Escribí el nombre para buscarla o elegí una opción.';
       case 'dia': return '¿Qué día te viene mejor? Atendemos de lunes a viernes.';
@@ -77,6 +90,7 @@
     var l = ['Hola, quiero solicitar un turno en Círculo Salud.', ''];
     l.push('• Nombre: ' + a.nombre);
     l.push('• Servicio: ' + SERVICIO_LABEL[a.servicio] + (a.motivo && a.motivo !== 'Otro' ? ' (' + a.motivo + ')' : ''));
+    l.push('• Profesional: ' + a.profesional);
     l.push('• Obra social: ' + a.os);
     l.push('• Día preferido: ' + a.dia);
     l.push('• Horario preferido: ' + a.franja.toLowerCase());
@@ -138,7 +152,7 @@
     var box = el('div', 'cb-sum');
     box.appendChild(el('p', 'cb-sum-t', 'Revisá tu solicitud:'));
     var ul = el('ul');
-    [['Nombre', a.nombre], ['Servicio', SERVICIO_LABEL[a.servicio] + (a.motivo && a.motivo !== 'Otro' ? ' · ' + a.motivo : '')],
+    [['Nombre', a.nombre], ['Servicio', SERVICIO_LABEL[a.servicio] + (a.motivo && a.motivo !== 'Otro' ? ' · ' + a.motivo : '')], ['Profesional', a.profesional],
      ['Obra social', a.os], ['Día', a.dia], ['Horario', a.franja]].forEach(function (r) {
       var li = el('li'); li.appendChild(el('span', null, r[0])); li.appendChild(el('strong', null, r[1])); ul.appendChild(li);
     });
@@ -148,6 +162,7 @@
 
   /* ---------------- acciones ---------------- */
   function answer(key, value) {
+    if (key === 'servicio') { setServicio(value); dateMode = false; render(true); return; }
     state.answers[key] = value;
     state.step = STEPS.indexOf(key) + 1;
     dateMode = false;
@@ -158,6 +173,9 @@
     if (dateMode) { dateMode = false; render(false); return; }
     if (state.step <= 0) return;
     state.step--;
+    if (STEPS[state.step] === 'profesional' && state.answers.servicio && PROFESIONALES[state.answers.servicio].length === 1) {
+      delete state.answers.profesional; state.step--;       // paso automático: volver al servicio
+    }
     delete state.answers[STEPS[state.step]];
     render(false);
   }
@@ -218,6 +236,13 @@
         wrap.appendChild(chip('Kinesiología', function () { answer('servicio', 'kinesiologia'); }));
         var other = chip('Otra consulta', function () { openWa('Hola, quiero hacer una consulta en Círculo Salud.'); }, 'ghost');
         wrap.appendChild(other);
+        ctl.appendChild(wrap);
+        focusEl = wrap.firstChild;
+      } else if (step === 'profesional') {
+        wrap = el('div', 'cb-chips');
+        PROFESIONALES[a.servicio].forEach(function (n) { wrap.appendChild(chip(n, function () { answer('profesional', n); })); });
+        wrap.appendChild(chip('Me es indistinto', function () { answer('profesional', INDISTINTO); }, 'ghost'));
+        wrap.appendChild(backChip());
         ctl.appendChild(wrap);
         focusEl = wrap.firstChild;
       } else if (step === 'motivo') {
@@ -306,6 +331,10 @@
       var k = STEPS[i];
       if (!(k in a) && k !== 'servicio') continue;
       var isNew = animate && i >= shown;
+      if (k === 'profesional' && PROFESIONALES[a.servicio].length === 1) {
+        bubble('bot', 'En ' + SERVICIO_LABEL[a.servicio] + ' te atiende la ' + a.profesional + '.', isNew);
+        continue;
+      }
       bubble('bot', ask(k), isNew);
       bubble('user', answerText(k), isNew);
     }
