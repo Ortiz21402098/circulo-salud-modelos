@@ -1,3 +1,0 @@
-# VISTA PREVIA: bloquea buscadores. Quitar al publicar con el dominio definitivo.
-User-agent: *
-Disallow: /
