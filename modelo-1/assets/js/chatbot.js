@@ -399,7 +399,6 @@
     panel.classList.add('is-open');
     isOpen = true;
     setPressed(true);
-    hideTeaser(true);
     render(false);
   }
   function close(returnFocus) {
@@ -415,27 +414,6 @@
     for (var i = 0; i < n.length; i++) n[i].setAttribute('aria-expanded', v ? 'true' : 'false');
   }
 
-  /* ---------------- globito de invitación ---------------- */
-  var teaser = null;
-  function showTeaser() {
-    if (isOpen || teaser || doc.body.classList.contains('p-turnos')) return;
-    try { if (sessionStorage.getItem('cs-teaser')) return; } catch (e) { /* nada */ }
-    teaser = el('div', 'cb-teaser');
-    var t = el('button', 'cb-teaser-go'); t.type = 'button';
-    t.appendChild(el('strong', null, '¿Querés sacar un turno?'));
-    t.appendChild(el('span', null, 'Te ayudo en un minuto'));
-    var x = el('button', 'cb-teaser-x'); x.type = 'button'; x.setAttribute('aria-label', 'Cerrar aviso'); x.textContent = '×';
-    teaser.appendChild(t); teaser.appendChild(x);
-    doc.body.appendChild(teaser);
-    t.addEventListener('click', function () { open(null, doc.querySelector('.wa-float')); });
-    x.addEventListener('click', function () { hideTeaser(true); });
-  }
-  function hideTeaser(remember) {
-    if (teaser && teaser.parentNode) teaser.parentNode.removeChild(teaser);
-    teaser = null;
-    if (remember) { try { sessionStorage.setItem('cs-teaser', '1'); } catch (e) { /* nada */ } }
-  }
-
   /* ---------------- eventos globales ---------------- */
   doc.addEventListener('click', function (e) {
     var t = e.target.closest ? e.target.closest('[data-chat-open]') : null;
@@ -448,5 +426,4 @@
   doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && isOpen) close(true); });
 
   if (location.hash === '#turno') open();
-  else setTimeout(showTeaser, 6000);
 })();

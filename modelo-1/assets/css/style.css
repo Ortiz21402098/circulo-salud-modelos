@@ -450,15 +450,7 @@ a.info:hover { border-color: #c4d8e5; box-shadow: var(--shadow); }
 .cb-foot a { color: #168a47; font-weight: 700; text-decoration: none; }
 .cb-foot a:hover { text-decoration: underline; }
 
-.cb-teaser { position: fixed; right: 18px; bottom: 90px; z-index: 61; max-width: 250px; background: #fff; border-radius: 16px 16px 4px 16px; box-shadow: 0 14px 36px rgba(10, 43, 66, .26), 0 0 0 1px rgba(18, 64, 95, .08); animation: cbIn .4s ease both; }
-.cb-teaser-go { display: flex; flex-direction: column; gap: 2px; text-align: left; font: inherit; border: 0; background: transparent; cursor: pointer; padding: 14px 34px 14px 16px; color: var(--ink); }
-.cb-teaser-go strong { color: var(--navy); }
-.cb-teaser-go span { color: var(--muted); font-size: .9rem; }
-.cb-teaser-x { position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); font-size: 1.3rem; line-height: 1; cursor: pointer; }
-.cb-teaser-x:hover { background: var(--sky); }
-
 @media (max-width: 560px) {
   .cb-panel { right: 8px; left: 8px; width: auto; bottom: 8px; height: min(720px, calc(100dvh - 16px)); border-radius: 18px; }
-  .cb-teaser { right: 12px; bottom: 84px; }
 }
-@media (prefers-reduced-motion: reduce) { .cb-panel, .cb-row.new, .cb-teaser, .loc-card > img { transition: none; animation: none; } .cb-log { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { .cb-panel, .cb-row.new, .loc-card > img { transition: none; animation: none; } .cb-log { scroll-behavior: auto; } }
