@@ -18,6 +18,13 @@ assets/img, assets/video  → imágenes y videos compartidos
 - **Turnos sin formulario**: se pide por WhatsApp. El ícono de WhatsApp (arriba a la derecha y flotante) abre un **asistente** que pregunta servicio, motivo, obra social, día, horario y nombre, y al final abre WhatsApp con el mensaje ya escrito. También se puede escribir directo.
 - Logo con fondo transparente; se quitó la barra "Ver otros modelos".
 
+## Actualización 10/11/2026
+- **Equipo**: fotos nuevas de la Dra. Florencia Santolino y la Dra. Agustina Llugdar (`assets/img/florencia-santolino.webp`, `agustina-llugdar.webp`). Se corrigió el recorte de las fotos del equipo (ahora se ve la cara completa).
+- **Instalaciones (Inicio)**: segunda fila de fotos con la recepción, el rincón de ingreso (buda), la puertita del ratón y el consultorio 3.
+- **Menú "Clientes felices"** (`modelo-1/clientes-felices.html`), en el menú y el pie de todas las páginas. Hoy muestra el mensaje "Estamos preparando esta sección" hasta que se carguen pacientes: en el HTML hay un comentario con el bloque para copiar (foto + opinión + nombre). Las fotos van en `assets/img/clientes/` (webp, ~800 px de ancho).
+  - Publicar foto y opinión de un paciente requiere su **autorización por escrito**.
+- **Instagram** `@circulosalud_`: botón en el encabezado (escritorio) y en "Clientes felices", además del pie y Contacto.
+
 ## Ver en local
 ```bash
 python3 -m http.server 8000   # abrir http://localhost:8000
