@@ -23,7 +23,7 @@ assets/img, assets/video  → imágenes y videos compartidos
 - **Recepción**: foto nueva con el cartel negro (reemplaza a `recepcion-logo.webp` en todo el sitio, incluida la portada). **Consultorio 1**: foto nueva (`consultorio-1.webp`).
 - **Video del recorrido** reemplazado por el nuevo (`assets/video/recorrido.mp4`, vertical, ~3 MB) con su portada.
 - **Instalaciones (Inicio)**: segunda fila con el rincón de ingreso (buda) y la puertita del ratón.
-- **Menú "Clientes felices"** (`modelo-1/clientes-felices.html`), en el menú y el pie de todas las páginas. Hoy muestra el mensaje "Estamos preparando esta sección" hasta que se carguen pacientes: en el HTML hay un comentario con el bloque para copiar (foto + opinión + nombre). Las fotos van en `assets/img/clientes/` (webp, ~800 px de ancho).
+- **Menú "Clientes felices"** (`modelo-1/clientes-felices.html`), en el menú y el pie de todas las páginas. Hoy muestra **tarjetas de ejemplo** (con el cartel "Ejemplo", fotos de la clínica de relleno) para mostrar el diseño; hay que borrar el bloque marcado `DEMO-INICIO … DEMO-FIN` cuando se carguen pacientes reales (en ese comentario queda el cartel "Estamos preparando esta sección" por si hace falta). También borrar las fotos de ejemplo `assets/img/clientes/demo-*.webp`. Para cargar pacientes: en el HTML hay un comentario con el bloque para copiar (foto + opinión + nombre). Las fotos van en `assets/img/clientes/` (webp, ~800 px de ancho).
   - Publicar foto y opinión de un paciente requiere su **autorización por escrito**.
 - **Instagram** `@circulosalud_`: botón en el encabezado (escritorio) y en "Clientes felices", además del pie y Contacto.
 

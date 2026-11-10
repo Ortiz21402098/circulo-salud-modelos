@@ -467,8 +467,8 @@ a.info:hover { border-color: #c4d8e5; box-shadow: var(--shadow); }
 /* ---------- Clientes felices ---------- */
 .happy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .happy { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
-.happy-ph { display: block; aspect-ratio: 4 / 4.6; overflow: hidden; background: var(--teal-100); }
-.happy-ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; transition: transform .5s ease; }
+.happy-ph { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: var(--teal-100); }
+.happy-ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform .5s ease; }
 .happy-ph:hover img { transform: scale(1.04); }
 .happy figcaption { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .happy .stars { color: #e3a82b; letter-spacing: .12em; font-size: 1.05rem; }
@@ -485,3 +485,12 @@ a.info:hover { border-color: #c4d8e5; box-shadow: var(--shadow); }
 .share-box .share-cta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 @media (max-width: 1000px) { .happy-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 620px) { .happy-grid { grid-template-columns: 1fr; } }
+
+/* Demo (borrar con el bloque DEMO de clientes-felices.html) */
+.demo-note { grid-column: 1 / -1; margin: 0; text-align: center; background: #fff7e0; border: 1px solid #f0d58a; color: #6b5200; border-radius: var(--r); padding: 12px 18px; font-size: .95rem; }
+.demo-card { position: relative; }
+.demo-tag { position: absolute; top: 14px; left: 14px; z-index: 2; background: #e3a82b; color: #3a2b00; font-weight: 800; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; box-shadow: var(--shadow-sm); }
+.demo-card .happy-ph { display: block; }
+.happy-cta { background: var(--teal-100); border-style: dashed; justify-content: center; align-items: center; text-align: center; padding: 34px 26px; gap: 12px; }
+.happy-cta h3 { font-family: var(--serif); color: var(--navy); font-size: 1.45rem; }
+.happy-cta p { color: var(--muted); margin: 0 0 8px; }
