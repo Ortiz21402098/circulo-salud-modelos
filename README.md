@@ -25,7 +25,7 @@ assets/img, assets/video  → imágenes y videos compartidos
 - **Instalaciones (Inicio)**: segunda fila con el rincón de ingreso (buda), la puertita del ratón y el consultorio 3.
 - **Menú "Clientes felices"** (`modelo-1/clientes-felices.html`), en el menú y el pie de todas las páginas. Hoy muestra **tarjetas de ejemplo** (sin cartel en cada foto; una línea chica al pie aclara que son de muestra — borrar el párrafo `demo-foot` junto con el bloque) para mostrar el diseño; hay que borrar el bloque marcado `DEMO-INICIO … DEMO-FIN` cuando se carguen pacientes reales (en ese comentario queda el cartel "Estamos preparando esta sección" por si hace falta). También borrar las fotos de ejemplo `assets/img/clientes/demo-*.webp`. Para cargar pacientes: en el HTML hay un comentario con el bloque para copiar (foto + opinión + nombre). Las fotos van en `assets/img/clientes/` (webp, ~800 px de ancho).
   - Publicar foto y opinión de un paciente requiere su **autorización por escrito**.
-- **Turnos directo a WhatsApp**: todos los botones "Turno por chat" ahora dicen "Turno por WhatsApp" y abren WhatsApp con un mensaje inicial (los de Servicios incluyen Odontología o Kinesiología). Se quitó el asistente de las páginas (el archivo `modelo-1/assets/js/chatbot.js` sigue en el repo pero ya no se carga). La Política de privacidad y la página Turnos se actualizaron en consecuencia.
+- **Turnos**: los botones "Turno por chat" (menú, inicio y cierres de página) abren el asistente de turnos (`chatbot.js`, vuelve a cargarse en todas las páginas), que al final abre WhatsApp con el pedido armado. El botón verde "Reservar turno por WhatsApp" y los botones "Pedir turno de Odontología / Kinesiología" de Servicios abren WhatsApp directo. En Kinesiología se quitaron los botones debajo del video.
 - **Nosotros e Inicio**: el collage de fotos suma el consultorio 3.
 - **Instagram** `@circulosalud_`: botón en el encabezado (escritorio) y en "Clientes felices", además del pie y Contacto.
 
@@ -55,4 +55,3 @@ Borrar las carpetas `modelo-2/` y `modelo-3/` (y `assets/img/preview-*.webp`) y 
 4. Revisar la política de privacidad con un asesor legal (Ley 25.326).
 5. Confirmar la ubicación en el mapa y el estado de la foto de banco de "Odontología" (licencia) en Servicios.
 
-> Nota: los botones "Turno por chat" (menú y secciones) abren WhatsApp directamente con un mensaje prearmado; el botón verde dice "Reservar turno por WhatsApp" y muestra el número.
