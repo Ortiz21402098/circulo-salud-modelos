@@ -495,3 +495,5 @@ a.info:hover { border-color: #c4d8e5; box-shadow: var(--shadow); }
 .happy-cta { background: var(--teal-100); border-style: dashed; justify-content: center; align-items: center; text-align: center; padding: 34px 26px; gap: 12px; }
 .happy-cta h3 { font-family: var(--serif); color: var(--navy); font-size: 1.45rem; }
 .happy-cta p { color: var(--muted); margin: 0 0 8px; }
+
+.demo-foot { margin: 22px auto 0; max-width: 640px; text-align: center; font-size: .82rem; color: var(--muted, #5b6b78); opacity: .85; }
