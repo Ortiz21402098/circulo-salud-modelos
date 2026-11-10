@@ -55,3 +55,4 @@ Borrar las carpetas `modelo-2/` y `modelo-3/` (y `assets/img/preview-*.webp`) y 
 4. Revisar la política de privacidad con un asesor legal (Ley 25.326).
 5. Confirmar la ubicación en el mapa y el estado de la foto de banco de "Odontología" (licencia) en Servicios.
 
+- **Servicios · Kinesiología**: las listas "Patologías y afecciones" y "Objetivos del tratamiento" ahora se ven como tarjetas con tilde (2 columnas en escritorio, 1 en celular). Estilos `.checklist` en `style.css`.
