@@ -21,8 +21,8 @@ assets/img, assets/video  → imágenes y videos compartidos
 ## Actualización 10/11/2026
 - **Equipo**: fotos nuevas de la Dra. Florencia Santolino y la Dra. Agustina Llugdar (`assets/img/florencia-santolino.webp`, `agustina-llugdar.webp`). Se corrigió el recorte de las fotos del equipo (ahora se ve la cara completa).
 - **Recepción**: foto nueva con el cartel negro (reemplaza a `recepcion-logo.webp` en todo el sitio, incluida la portada). **Consultorio 1**: foto nueva (`consultorio-1.webp`).
-- **Video del recorrido** reemplazado por el nuevo (`assets/video/recorrido.mp4`, vertical, ~3 MB) con su portada.
-- **Instalaciones (Inicio)**: segunda fila con el rincón de ingreso (buda) y la puertita del ratón.
+- **Video del recorrido** reemplazado por el nuevo, con música de fondo (`assets/video/recorrido.mp4`, vertical) y su portada. **Consultorio 3**: foto nueva (`consultorio-3.webp`).
+- **Instalaciones (Inicio)**: segunda fila con el rincón de ingreso (buda), la puertita del ratón y el consultorio 3.
 - **Menú "Clientes felices"** (`modelo-1/clientes-felices.html`), en el menú y el pie de todas las páginas. Hoy muestra **tarjetas de ejemplo** (con el cartel "Ejemplo", fotos de la clínica de relleno) para mostrar el diseño; hay que borrar el bloque marcado `DEMO-INICIO … DEMO-FIN` cuando se carguen pacientes reales (en ese comentario queda el cartel "Estamos preparando esta sección" por si hace falta). También borrar las fotos de ejemplo `assets/img/clientes/demo-*.webp`. Para cargar pacientes: en el HTML hay un comentario con el bloque para copiar (foto + opinión + nombre). Las fotos van en `assets/img/clientes/` (webp, ~800 px de ancho).
   - Publicar foto y opinión de un paciente requiere su **autorización por escrito**.
 - **Instagram** `@circulosalud_`: botón en el encabezado (escritorio) y en "Clientes felices", además del pie y Contacto.
