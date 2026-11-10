@@ -25,6 +25,8 @@ assets/img, assets/video  → imágenes y videos compartidos
 - **Instalaciones (Inicio)**: segunda fila con el rincón de ingreso (buda), la puertita del ratón y el consultorio 3.
 - **Menú "Clientes felices"** (`modelo-1/clientes-felices.html`), en el menú y el pie de todas las páginas. Hoy muestra **tarjetas de ejemplo** (con el cartel "Ejemplo", fotos de la clínica de relleno) para mostrar el diseño; hay que borrar el bloque marcado `DEMO-INICIO … DEMO-FIN` cuando se carguen pacientes reales (en ese comentario queda el cartel "Estamos preparando esta sección" por si hace falta). También borrar las fotos de ejemplo `assets/img/clientes/demo-*.webp`. Para cargar pacientes: en el HTML hay un comentario con el bloque para copiar (foto + opinión + nombre). Las fotos van en `assets/img/clientes/` (webp, ~800 px de ancho).
   - Publicar foto y opinión de un paciente requiere su **autorización por escrito**.
+- **Turnos directo a WhatsApp**: todos los botones "Turno por chat" ahora dicen "Turno por WhatsApp" y abren WhatsApp con un mensaje inicial (los de Servicios incluyen Odontología o Kinesiología). Se quitó el asistente de las páginas (el archivo `modelo-1/assets/js/chatbot.js` sigue en el repo pero ya no se carga). La Política de privacidad y la página Turnos se actualizaron en consecuencia.
+- **Nosotros e Inicio**: el collage de fotos suma el consultorio 3.
 - **Instagram** `@circulosalud_`: botón en el encabezado (escritorio) y en "Clientes felices", además del pie y Contacto.
 
 ## Ver en local

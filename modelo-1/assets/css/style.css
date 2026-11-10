@@ -171,10 +171,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .split-text p { color: #33434f; font-size: 1.04rem; }
 .split-text .h2 { margin-bottom: 18px; }
 .tagline { font-family: var(--serif); font-style: italic; color: var(--navy); font-size: 1.2rem; border-left: 3px solid var(--teal); padding-left: 16px; margin-top: 24px; }
-.collage { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.collage { position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
 .collage img { width: 100%; height: auto; object-fit: cover; border-radius: var(--r); box-shadow: var(--shadow); }
 .collage .c1 { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
-.collage .c2, .collage .c3 { aspect-ratio: 4 / 4.6; }
+.collage .c2, .collage .c3, .collage .c4 { aspect-ratio: 4 / 5.2; }
 @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 36px; } .split.rev .split-media { order: 0; } }
 
 /* ---------- Equipo ---------- */
